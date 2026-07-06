@@ -20,6 +20,7 @@ Built with **Next.js 16 (App Router)**, **React 19**, **TypeScript**,
 | **HTTP Client → WebSocket** | `/http-client/websocket` | Connect to a WS server and view the live message log |
 | **Diff Checker** | `/diff-checker` | Compare two pieces of text/code side by side (Monaco diff) |
 | **JSON Formatter** | `/json-formatter` | Format and validate JSON |
+| **HTML to Markdown** | `/html-to-markdown` | Convert raw HTML or a fetched URL to Markdown, optionally scoped to one element by id/class |
 | **Base64** | `/base64` | Encode / decode Base64 |
 | **String Counter** | `/string-counter` | Count characters, words, lines, etc. |
 | **JWT Decoder** | `/jwt` | Decode and inspect JWT tokens |
@@ -130,3 +131,9 @@ bodies, and returns the status, headers, and body back to the UI. There is also 
 > ⚠️ This proxy runs server-side and will forward requests to any URL you give it.
 > Keep it on `localhost` / trusted networks — don't expose it publicly without
 > adding authentication and allow-listing.
+>
+> ⚠️ It also skips TLS certificate validation (`rejectUnauthorized: false`) on
+> outbound requests, since dev machines behind a corporate SSL-inspecting proxy
+> otherwise get `self-signed certificate in certificate chain` errors on every
+> HTTPS target. This disables MITM protection for anything forwarded through
+> the proxy — acceptable for a localhost dev tool, but don't expose it beyond that.
