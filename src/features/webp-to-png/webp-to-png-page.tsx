@@ -89,7 +89,7 @@ export default function WebpToPngPage() {
     const rejected = Array.from(fileList).length - incoming.length;
     if (rejected > 0) {
       toast.warning(
-        `${rejected} file bị bỏ qua (chỉ chấp nhận ảnh .webp)`
+        `${rejected} file(s) skipped (only .webp images are accepted)`
       );
     }
     if (incoming.length === 0) return;
@@ -203,11 +203,11 @@ export default function WebpToPngPage() {
         <main className="flex-1 p-6">
           <div className="max-w-3xl mx-auto flex flex-col gap-6">
             <p className="text-sm text-muted-foreground">
-              Chuyển đổi một hoặc nhiều ảnh <strong>.webp</strong> sang{" "}
-              <strong>.png</strong>. PNG là định dạng không nén mất dữ liệu
-              (lossless) nên ảnh xuất ra giữ nguyên độ phân giải và độ sắc nét
-              như ảnh gốc. Toàn bộ xử lý diễn ra ngay trên trình duyệt — file
-              không được gửi đi đâu cả.
+              Convert one or more <strong>.webp</strong> images to{" "}
+              <strong>.png</strong>. PNG is a lossless format, so the output
+              keeps the exact resolution and sharpness of the original image.
+              Everything runs in your browser — files are never uploaded
+              anywhere.
             </p>
 
             {/* Drop zone */}
@@ -235,9 +235,9 @@ export default function WebpToPngPage() {
               }`}
             >
               <Upload className="size-8 text-muted-foreground" />
-              <p className="font-medium">Kéo thả ảnh WebP vào đây</p>
+              <p className="font-medium">Drag & drop WebP images here</p>
               <p className="text-sm text-muted-foreground">
-                hoặc bấm để chọn file (có thể chọn nhiều)
+                or click to select files (multiple allowed)
               </p>
               <input
                 ref={inputRef}
@@ -261,7 +261,7 @@ export default function WebpToPngPage() {
                   ) : (
                     <ImageIcon className="size-4" />
                   )}
-                  {isConverting ? "Đang chuyển..." : "Chuyển sang PNG"}
+                  {isConverting ? "Converting..." : "Convert to PNG"}
                 </Button>
                 <Button
                   variant="outline"
@@ -269,11 +269,11 @@ export default function WebpToPngPage() {
                   disabled={doneCount === 0}
                 >
                   <Download className="size-4" />
-                  Tải tất cả ({doneCount})
+                  Download all ({doneCount})
                 </Button>
                 <Button variant="outline" onClick={handleClear} disabled={isConverting}>
                   <Trash2 className="size-4" />
-                  Xóa hết
+                  Clear all
                 </Button>
               </div>
             )}
