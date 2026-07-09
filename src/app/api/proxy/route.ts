@@ -1,8 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
+import https from "https";
 
 // Headers that browsers/Next manage and that would break the forwarded request.
 const SKIPPED_HEADERS = new Set(["host", "origin", "referer", "user-agent"]);
+
+// This proxy is a local dev tool for hitting arbitrary URLs (see README),
+// so we don't want a corporate SSL-inspecting proxy/antivirus injecting an
+// untrusted root CA to break every HTTPS request forwarded through here.
+const insecureHttpsAgent = new https.Agent({ rejectUnauthorized: false });
+
+// Node's default axios User-Agent gets sites to reject plain page fetches
+// (e.g. for the HTML to Markdown tool) as bot traffic, so identify as a
+// regular browser unless the caller sets its own.
+const DEFAULT_USER_AGENT =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36";
 
 const ensureProtocol = (url: string): string =>
   /^https?:\/\//i.test(url) ? url : `http://${url}`;
@@ -27,10 +39,11 @@ const forward = async (
   const response = await axios({
     url: ensureProtocol(targetUrl),
     method: method || "GET",
-    headers,
+    headers: { "User-Agent": DEFAULT_USER_AGENT, ...headers },
     data: data ?? undefined,
     responseType: "text",
     validateStatus: () => true, // handle all status codes manually
+    httpsAgent: insecureHttpsAgent,
   });
 
   const responseHeaders: Record<string, string> = {};

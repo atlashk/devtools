@@ -96,13 +96,13 @@ export function MonacoEditor({
             <Button
               variant="ghost"
               size="icon"
-              className="h-7 w-7"
+              className="relative h-7 w-7"
               onClick={handleCopy}
               title="Copy to clipboard"
             >
               <Copy className="h-3.5 w-3.5" />
               {copySuccess && (
-                <span className="absolute -top-8 right-0 bg-background text-foreground text-xs py-1 px-2 rounded shadow-md">
+                <span className="absolute top-full right-0 mt-1 z-10 bg-background text-foreground text-xs py-1 px-2 rounded shadow-md border whitespace-nowrap">
                   Copied!
                 </span>
               )}
