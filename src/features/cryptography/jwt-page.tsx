@@ -16,7 +16,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/shadcn/sidebar";
-import { Check, Copy, KeyRound, ShieldAlert, ShieldCheck, Trash2 } from "lucide-react";
+import { Check, Copy, Eraser, KeyRound, ShieldAlert, ShieldCheck } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 type DecodedJwt = {
@@ -235,7 +235,7 @@ export default function JwtPage() {
               {error && <span className="text-sm text-red-500">{error}</span>}
               <div className="flex gap-2">
                 <Button variant="outline" onClick={handleClear}>
-                  <Trash2 className="size-4" />
+                  <Eraser className="size-4" />
                   Clear
                 </Button>
               </div>

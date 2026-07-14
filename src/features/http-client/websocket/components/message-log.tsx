@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/shadcn/badge";
 import { Button } from "@/components/ui/shadcn/button";
-import { ArrowDown, ArrowUp, Info, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Eraser, Info } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { WsLiveState, WsMessage, WsStatus } from "../types/websocket.types";
 
@@ -93,7 +93,7 @@ export function MessageLog({ live, onClear }: MessageLogProps) {
           disabled={live.messages.length === 0}
           className="h-7"
         >
-          <Trash2 className="h-3 w-3 mr-1" />
+          <Eraser className="h-3 w-3 mr-1" />
           Clear
         </Button>
       </div>

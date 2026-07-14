@@ -1,6 +1,6 @@
 "use client";
 
-import { Edit, FileText, RotateCcw, Search } from "lucide-react";
+import { Edit, Eraser, FileText, Search } from "lucide-react";
 import * as React from "react";
 
 import { AppSidebar } from "@/components/app-sidebar";
@@ -70,7 +70,7 @@ function ActionButtons({
         <>
           <Button
             onClick={onFindDiff}
-            className="gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 text-sm"
+            className="gap-2 px-4 py-2 text-sm"
           >
             <Search className="h-4 w-4" />
             Find differences
@@ -80,7 +80,7 @@ function ActionButtons({
             onClick={onClear}
             className="gap-2 px-4 py-2 text-sm"
           >
-            <RotateCcw className="h-4 w-4" />
+            <Eraser className="h-4 w-4" />
             Clear Inputs
           </Button>
         </>

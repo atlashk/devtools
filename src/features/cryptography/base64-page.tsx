@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/shadcn/sidebar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/shadcn/tabs";
 import { useErrorHandler } from "@/hooks/use-error-handler";
-import { Binary, Check, Copy, FileText, Trash2 } from "lucide-react";
+import { Binary, Check, Copy, Eraser, FileText } from "lucide-react";
 import { useState } from "react";
 
 export default function Base64Page() {
@@ -108,7 +108,7 @@ export default function Base64Page() {
                     Encode
                   </Button>
                   <Button variant="outline" onClick={() => handleClear("encode")}>
-                    <Trash2 className="size-4" />
+                    <Eraser className="size-4" />
                     Clear
                   </Button>
                 </div>
@@ -160,7 +160,7 @@ export default function Base64Page() {
                     Decode
                   </Button>
                   <Button variant="outline" onClick={() => handleClear("decode")}>
-                    <Trash2 className="size-4" />
+                    <Eraser className="size-4" />
                     Clear
                   </Button>
                 </div>

@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Web Developer",
-    template: "%s | Web Developer",
+    default: "Developer Tools",
+    template: "%s | Developer Tools",
   },
-  description: "Web Developer Tools",
+  description: "Developer Tools",
 };
 
 export default function RootLayout({

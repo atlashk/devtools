@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WebpToPngPage from "@/features/webp-to-png/webp-to-png-page";
+import WebpToPngPage from "@/features/image-converter/webp-to-png-page";
 
 export const metadata: Metadata = {
   title: "WebP to PNG Converter",

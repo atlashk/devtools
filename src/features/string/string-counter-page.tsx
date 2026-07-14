@@ -15,7 +15,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/shadcn/sidebar";
-import { Trash2 } from "lucide-react";
+import { Eraser } from "lucide-react";
 import { useMemo, useState } from "react";
 
 export default function StringCounterPage() {
@@ -69,7 +69,7 @@ export default function StringCounterPage() {
                 onChange={(e) => setInput(e.target.value)}
               />
               <Button variant="outline" className="w-fit" onClick={handleClear}>
-                <Trash2 className="size-4" />
+                <Eraser className="size-4" />
                 Clear
               </Button>
             </div>

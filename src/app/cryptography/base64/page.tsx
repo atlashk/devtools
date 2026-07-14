@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Base64Page from "@/features/base64/base64-page";
+import Base64Page from "@/features/cryptography/base64-page";
 
 export const metadata: Metadata = {
   title: "Base64 Encode / Decode",

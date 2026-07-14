@@ -20,7 +20,7 @@ const data = {
   navMain: [
     {
       title: "HTTP Client",
-      url: "#",
+      url: "/http-client",
       items: [
         {
           title: "REST",
@@ -45,62 +45,91 @@ const data = {
       ],
     },
     {
-      title: "Diff Checker",
-      url: "/diff-checker",
-      items: [],
+      title: "String",
+      url: "/string",
+      items: [
+        {
+          title: "String Counter",
+          url: "/string/counter",
+          isActive: false,
+        },
+        {
+          title: "Diff Checker",
+          url: "/string/diff-checker",
+          isActive: false,
+        },
+      ],
     },
     {
-      title: "JSON Formatter",
-      url: "/json-formatter",
-      items: [],
+      title: "JSON",
+      url: "/json",
+      items: [
+        {
+          title: "JSON Formatter",
+          url: "/json/formatter",
+          isActive: false,
+        },
+      ],
     },
     {
-      title: "HTML to Markdown",
-      url: "/html-to-markdown",
-      items: [],
+      title: "Cryptography",
+      url: "/cryptography",
+      items: [
+        {
+          title: "Base64",
+          url: "/cryptography/base64",
+          isActive: false,
+        },
+        {
+          title: "Bcrypt",
+          url: "/cryptography/bcrypt",
+          isActive: false,
+        },
+        {
+          title: "JWT",
+          url: "/cryptography/jwt",
+          isActive: false,
+        },
+      ],
     },
     {
-      title: "Base64",
-      url: "/base64",
-      items: [],
-    },
-    {
-      title: "String Counter",
-      url: "/string-counter",
-      items: [],
-    },
-    {
-      title: "JWT Decoder",
-      url: "/jwt",
-      items: [],
-    },
-    {
-      title: "Timestamp Converter",
+      title: "Timestamp",
       url: "/timestamp",
       items: [],
     },
     {
-      title: "UUID Generator",
+      title: "UUID",
       url: "/uuid",
       items: [],
     },
     {
+      title: "Markdown",
+      url: "/markdown",
+      items: [
+        {
+          title: "HTML to Markdown",
+          url: "/markdown/html-to-markdown",
+          isActive: false,
+        },
+      ],
+    },
+    {
       title: "Image Converter",
-      url: "#",
+      url: "/image-converter",
       items: [
         {
           title: "WebP to PNG",
-          url: "/webp-to-png",
+          url: "/image-converter/webp-to-png",
           isActive: false,
         },
         {
           title: "JPG to PNG",
-          url: "/jpg-to-png",
+          url: "/image-converter/jpg-to-png",
           isActive: false,
         },
         {
           title: "PNG to JPG",
-          url: "/png-to-jpg",
+          url: "/image-converter/png-to-jpg",
           isActive: false,
         },
       ],
@@ -120,7 +149,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Code2 className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium">Web Developer</span>
+                  <span className="font-medium">Developer Tools</span>
                   <span className="">v1.0.0</span>
                 </div>
               </Link>
@@ -133,11 +162,17 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenu>
             {data.navMain.map((item) => (
               <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton asChild>
-                  <a href={item.url} className="font-medium">
+                {item.items?.length ? (
+                  <div className="text-sidebar-foreground/70 flex h-8 items-center px-2 text-sm font-medium">
                     {item.title}
-                  </a>
-                </SidebarMenuButton>
+                  </div>
+                ) : (
+                  <SidebarMenuButton asChild>
+                    <a href={item.url} className="font-medium">
+                      {item.title}
+                    </a>
+                  </SidebarMenuButton>
+                )}
                 {item.items?.length ? (
                   <SidebarMenuSub>
                     {item.items.map((item) => (

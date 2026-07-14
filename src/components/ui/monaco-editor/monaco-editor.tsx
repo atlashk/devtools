@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/shadcn/button";
 import Editor from "@monaco-editor/react";
-import { Code, Copy, Search, Trash2 } from "lucide-react";
+import { Code, Copy, Eraser, Search } from "lucide-react";
 import { ReactNode, useRef, useState } from "react";
 
 export interface MonacoEditorProps {
@@ -116,7 +116,7 @@ export function MonacoEditor({
               onClick={handleClear}
               title="Clear content"
             >
-              <Trash2 className="h-3.5 w-3.5" />
+              <Eraser className="h-3.5 w-3.5" />
             </Button>
           )}
           {showFormatButton && (

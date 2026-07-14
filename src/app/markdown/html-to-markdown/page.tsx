@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HtmlToMarkdownPage from "@/features/html-to-markdown/html-to-markdown-page";
+import HtmlToMarkdownPage from "@/features/markdown/html-to-markdown/html-to-markdown-page";
 
 export const metadata: Metadata = {
   title: "HTML to Markdown",

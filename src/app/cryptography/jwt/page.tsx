@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import JwtPage from "@/features/jwt/jwt-page";
+import JwtPage from "@/features/cryptography/jwt-page";
 
 export const metadata: Metadata = {
   title: "JWT Decoder",

@@ -15,7 +15,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/shadcn/sidebar";
 import { useErrorHandler } from "@/hooks/use-error-handler";
-import { Download, ImageIcon, Loader2, Trash2, Upload, X } from "lucide-react";
+import { Download, Eraser, ImageIcon, Loader2, Upload, X } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
@@ -335,7 +335,7 @@ export default function ImageConvertPage({
                   Download all ({doneCount})
                 </Button>
                 <Button variant="outline" onClick={handleClear} disabled={isConverting}>
-                  <Trash2 className="size-4" />
+                  <Eraser className="size-4" />
                   Clear all
                 </Button>
               </div>

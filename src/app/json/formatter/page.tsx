@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import JsonFormatterPage from "@/features/json-formatter/json-formatter-page";
+import JsonFormatterPage from "@/features/json/json-formatter-page";
 
 export const metadata: Metadata = {
   title: "JSON Formatter",

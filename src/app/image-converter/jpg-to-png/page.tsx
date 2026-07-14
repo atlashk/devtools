@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import JpgToPngPage from "@/features/jpg-to-png/jpg-to-png-page";
+import JpgToPngPage from "@/features/image-converter/jpg-to-png-page";
 
 export const metadata: Metadata = {
   title: "JPG to PNG Converter",

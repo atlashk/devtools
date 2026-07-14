@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import DiffCheckerPage from "@/features/diff-checker/diff-checker-page";
+import DiffCheckerPage from "@/features/string/diff-checker-page";
 
 export const metadata: Metadata = {
   title: "Diff Checker",
