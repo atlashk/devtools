@@ -85,9 +85,25 @@ const data = {
       items: [],
     },
     {
-      title: "WebP to PNG",
-      url: "/webp-to-png",
-      items: [],
+      title: "Image Converter",
+      url: "#",
+      items: [
+        {
+          title: "WebP to PNG",
+          url: "/webp-to-png",
+          isActive: false,
+        },
+        {
+          title: "JPG to PNG",
+          url: "/jpg-to-png",
+          isActive: false,
+        },
+        {
+          title: "PNG to JPG",
+          url: "/png-to-jpg",
+          isActive: false,
+        },
+      ],
     },
   ],
 }
