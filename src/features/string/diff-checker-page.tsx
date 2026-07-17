@@ -1,6 +1,6 @@
 "use client";
 
-import { Edit, Eraser, FileText, Search } from "lucide-react";
+import { CheckCircle2, Edit, Eraser, FileText, Search } from "lucide-react";
 import * as React from "react";
 
 import { AppSidebar } from "@/components/app-sidebar";
@@ -22,6 +22,15 @@ import {
 } from "@/components/ui/shadcn/sidebar";
 import { useErrorHandler } from "@/hooks/use-error-handler";
 
+function IdenticalNotice() {
+  return (
+    <div className="mb-4 flex items-center gap-2 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-700 dark:border-green-900 dark:bg-green-950 dark:text-green-400">
+      <CheckCircle2 className="h-4 w-4 shrink-0" />
+      The source and changed text are identical — no differences found.
+    </div>
+  );
+}
+
 interface DiffViewerProps {
   label: string;
   originalText: string;
@@ -29,8 +38,11 @@ interface DiffViewerProps {
 }
 
 function DiffViewer({ label, originalText, modifiedText }: DiffViewerProps) {
+  const isIdentical = originalText === modifiedText;
+
   return (
     <div className="flex flex-col h-full">
+      {isIdentical && <IdenticalNotice />}
       <div className="flex items-center gap-2 mb-3">
         <FileText className="h-4 w-4 text-gray-500" />
         <Label className="text-sm font-medium text-gray-700 dark:text-gray-300">
