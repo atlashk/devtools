@@ -45,94 +45,89 @@ const data = {
       ],
     },
     {
-      title: "String",
-      url: "/string",
-      items: [
-        {
-          title: "String Counter",
-          url: "/string/counter",
-          isActive: false,
-        },
-        {
-          title: "Diff Checker",
-          url: "/string/diff-checker",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "JSON",
-      url: "/json",
-      items: [
-        {
-          title: "JSON Formatter",
-          url: "/json/formatter",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "Cryptography",
-      url: "/cryptography",
-      items: [
-        {
-          title: "Base64",
-          url: "/cryptography/base64",
-          isActive: false,
-        },
-        {
-          title: "Bcrypt",
-          url: "/cryptography/bcrypt",
-          isActive: false,
-        },
-        {
-          title: "JWT",
-          url: "/cryptography/jwt",
-          isActive: false,
-        },
-      ],
-    },
-    {
-      title: "Timestamp",
-      url: "/timestamp",
+      title: "String Counter",
+      url: "/string-counter",
       items: [],
     },
     {
-      title: "UUID",
-      url: "/uuid",
+      title: "Diff Checker",
+      url: "/diff-checker",
       items: [],
     },
     {
-      title: "Markdown",
-      url: "/markdown",
-      items: [
-        {
-          title: "HTML to Markdown",
-          url: "/markdown/html-to-markdown",
-          isActive: false,
-        },
-      ],
+      title: "Regex Tester",
+      url: "/regex-tester",
+      items: [],
     },
     {
-      title: "Image Converter",
-      url: "/image-converter",
-      items: [
-        {
-          title: "WebP to PNG",
-          url: "/image-converter/webp-to-png",
-          isActive: false,
-        },
-        {
-          title: "JPG to PNG",
-          url: "/image-converter/jpg-to-png",
-          isActive: false,
-        },
-        {
-          title: "PNG to JPG",
-          url: "/image-converter/png-to-jpg",
-          isActive: false,
-        },
-      ],
+      title: "JSON Formatter",
+      url: "/json-formatter",
+      items: [],
+    },
+    {
+      title: "Base64",
+      url: "/base64",
+      items: [],
+    },
+    {
+      title: "Bcrypt",
+      url: "/bcrypt",
+      items: [],
+    },
+    {
+      title: "URL Encoder / Decoder",
+      url: "/url-encoder",
+      items: [],
+    },
+    {
+      title: "JWT",
+      url: "/jwt",
+      items: [],
+    },
+    {
+      title: "Timestamp Converter",
+      url: "/timestamp-converter",
+      items: [],
+    },
+    {
+      title: "UUID Generator",
+      url: "/uuid-generator",
+      items: [],
+    },
+    {
+      title: "Password Generator",
+      url: "/password-generator",
+      items: [],
+    },
+    {
+      title: "Cron Generator",
+      url: "/cron-generator",
+      items: [],
+    },
+    {
+      title: "HTML to Markdown",
+      url: "/html-to-markdown",
+      items: [],
+    },
+    {
+      title: "WebP to PNG",
+      url: "/webp-to-png",
+      items: [],
+    },
+    {
+      title: "JPG to PNG",
+      url: "/jpg-to-png",
+      items: [],
+    },
+    {
+      title: "PNG to JPG",
+      url: "/png-to-jpg",
+      items: [],
+    },
+    {
+      title: "Image Resizer",
+      url: "/image-resizer",
+      items: [],
     },
   ],
 }

@@ -1,26 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc *)",
       "Bash(npx eslint *)",
       "Bash(npm run *)",
-      "Bash(npm install *)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:9090/bcrypt)",
-      "Bash(break)",
-      "Bash(curl -s http://localhost:9090/bcrypt)",
-      "Bash(mv src/features/cryptography/base64/base64-page.tsx src/features/cryptography/base64-page.tsx)",
-      "Bash(mv src/features/cryptography/bcrypt/bcrypt-page.tsx src/features/cryptography/bcrypt-page.tsx)",
-      "Bash(mv src/features/cryptography/jwt/jwt-page.tsx src/features/cryptography/jwt-page.tsx)",
-      "Bash(mv src/features/image-converter/jpg-to-png/jpg-to-png-page.tsx src/features/image-converter/jpg-to-png-page.tsx)",
-      "Bash(mv src/features/image-converter/png-to-jpg/png-to-jpg-page.tsx src/features/image-converter/png-to-jpg-page.tsx)",
-      "Bash(mkdir -p src/app/cryptography src/app/string src/app/json src/app/markdown src/app/image-converter)",
-      "Bash(git mv *)",
-      "Bash(mv src/app/bcrypt src/app/cryptography/bcrypt)",
-      "Bash(mv src/app/jwt src/app/cryptography/jwt)",
-      "Bash(mv src/app/string-counter src/app/string/string-counter)",
-      "Bash(mv src/app/diff-checker src/app/string/diff-checker)",
-      "Bash(mv src/app/json-formatter src/app/json/json-formatter)",
-      "Bash(git rm *)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:9090/cron-generator)",
+      "Bash(curl -s http://localhost:9090/cron-generator)",
+      "Bash(netstat -ano)",
+      "Bash(npx next *)"
     ]
   }
 }
