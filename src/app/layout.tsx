@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: "Developer Tools",
-    template: "%s | Developer Tools",
+    template: "Developer Tools | %s",
   },
   description: "Developer Tools",
 };
