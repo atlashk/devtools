@@ -1,5 +1,11 @@
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+import HomePage from "@/features/home-page";
 
-export default function Home() {
-  redirect("/http-client/rest");
+export const metadata: Metadata = {
+  title: "Home",
+  description: "A collection of handy, client-side developer tools.",
+};
+
+export default function Page() {
+  return <HomePage />;
 }

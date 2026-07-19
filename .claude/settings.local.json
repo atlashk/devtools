@@ -6,7 +6,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:9090/cron-generator)",
       "Bash(curl -s http://localhost:9090/cron-generator)",
       "Bash(netstat -ano)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(node *)",
+      "Bash(git mv *)"
     ]
   }
 }

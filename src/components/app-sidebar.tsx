@@ -1,4 +1,4 @@
-import { Code2 } from "lucide-react"
+import { Code2, Search } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
 
@@ -7,6 +7,7 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarHeader,
+  SidebarInput,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -65,8 +66,8 @@ const data = {
       items: [],
     },
     {
-      title: "Base64",
-      url: "/base64",
+      title: "Base64 Encoder / Decoder",
+      url: "/base64-encoder-decoder",
       items: [],
     },
     {
@@ -76,12 +77,12 @@ const data = {
     },
     {
       title: "URL Encoder / Decoder",
-      url: "/url-encoder",
+      url: "/url-encoder-decoder",
       items: [],
     },
     {
-      title: "JWT",
-      url: "/jwt",
+      title: "JWT Decoder",
+      url: "/jwt-decoder",
       items: [],
     },
     {
@@ -132,7 +133,33 @@ const data = {
   ],
 }
 
+function filterNavMain(items: typeof data.navMain, query: string) {
+  const q = query.trim().toLowerCase()
+  if (!q) return items
+
+  return items.reduce<typeof data.navMain>((acc, item) => {
+    const parentMatches = item.title.toLowerCase().includes(q)
+    const matchedItems = item.items.filter((subItem) =>
+      subItem.title.toLowerCase().includes(q),
+    )
+
+    if (parentMatches) {
+      acc.push(item)
+    } else if (matchedItems.length > 0) {
+      acc.push({ ...item, items: matchedItems })
+    }
+
+    return acc
+  }, [])
+}
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const [search, setSearch] = React.useState("")
+  const filteredNavMain = React.useMemo(
+    () => filterNavMain(data.navMain, search),
+    [search],
+  )
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -151,11 +178,25 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
+        <div className="relative">
+          <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2" />
+          <SidebarInput
+            placeholder="Search tools..."
+            className="pl-8"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
-            {data.navMain.map((item) => (
+            {filteredNavMain.length === 0 ? (
+              <div className="text-sidebar-foreground/70 px-2 py-1.5 text-sm">
+                No tools found.
+              </div>
+            ) : null}
+            {filteredNavMain.map((item) => (
               <SidebarMenuItem key={item.title}>
                 {item.items?.length ? (
                   <div className="text-sidebar-foreground/70 flex h-8 items-center px-2 text-sm font-medium">

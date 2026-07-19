@@ -40,10 +40,9 @@ if (port !== PREFERRED_PORT) {
   );
 }
 
-const child = spawn(
-  "next",
-  ["dev", "--turbopack", "--port", String(port)],
-  { stdio: "inherit", shell: true },
-);
+const child = spawn(`next dev --turbopack --port ${port}`, {
+  stdio: "inherit",
+  shell: true,
+});
 
 child.on("exit", (code) => process.exit(code ?? 0));
