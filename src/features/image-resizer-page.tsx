@@ -167,13 +167,11 @@ export default function ImageResizerPage() {
     : hasValidWidth && hasValidHeight;
 
   const handleResize = useCallback(async () => {
-    const pending = items.filter(
-      (it) => it.status === "pending" || it.status === "error"
-    );
-    if (pending.length === 0 || !canResizeSettings) return;
+    const targets = items.filter((it) => it.status !== "resizing");
+    if (targets.length === 0 || !canResizeSettings) return;
 
     setIsResizing(true);
-    for (const item of pending) {
+    for (const item of targets) {
       setItems((prev) =>
         prev.map((it) =>
           it.id === item.id
@@ -199,21 +197,21 @@ export default function ImageResizerPage() {
         ]);
         const url = URL.createObjectURL(blob);
         setItems((prev) =>
-          prev.map((it) =>
-            it.id === item.id
-              ? {
-                  ...it,
-                  status: "done",
-                  outputBlob: blob,
-                  outputUrl: url,
-                  outputSize: blob.size,
-                  outputWidth: outW,
-                  outputHeight: outH,
-                  originalWidth,
-                  originalHeight,
-                }
-              : it
-          )
+          prev.map((it) => {
+            if (it.id !== item.id) return it;
+            if (it.outputUrl) URL.revokeObjectURL(it.outputUrl);
+            return {
+              ...it,
+              status: "done",
+              outputBlob: blob,
+              outputUrl: url,
+              outputSize: blob.size,
+              outputWidth: outW,
+              outputHeight: outH,
+              originalWidth,
+              originalHeight,
+            };
+          })
         );
       } catch (err) {
         const message = err instanceof Error ? err.message : "Resize failed";
@@ -261,8 +259,7 @@ export default function ImageResizerPage() {
   const resultItems = items.filter((it) => it.status !== "pending");
   const doneCount = items.filter((it) => it.status === "done").length;
   const canResize =
-    canResizeSettings &&
-    items.some((it) => it.status === "pending" || it.status === "error");
+    canResizeSettings && items.some((it) => it.status !== "resizing");
 
   return (
     <SidebarProvider>
