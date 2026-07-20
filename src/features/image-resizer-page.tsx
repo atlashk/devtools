@@ -248,6 +248,27 @@ export default function ImageResizerPage() {
     });
   }, []);
 
+  // Clears just the resize output for an item, keeping the source file in the
+  // selected list so it can be resized again.
+  const handleClearResult = useCallback((id: string) => {
+    setItems((prev) =>
+      prev.map((it) => {
+        if (it.id !== id) return it;
+        if (it.outputUrl) URL.revokeObjectURL(it.outputUrl);
+        return {
+          ...it,
+          status: "pending",
+          outputBlob: undefined,
+          outputUrl: undefined,
+          outputWidth: undefined,
+          outputHeight: undefined,
+          outputSize: undefined,
+          error: undefined,
+        };
+      })
+    );
+  }, []);
+
   const handleClear = useCallback(() => {
     setItems((prev) => {
       prev.forEach((it) => it.outputUrl && URL.revokeObjectURL(it.outputUrl));
@@ -255,7 +276,9 @@ export default function ImageResizerPage() {
     });
   }, []);
 
-  const selectedItems = items.filter((it) => it.status === "pending");
+  // Every selected file stays listed regardless of status, so the source list
+  // does not vanish after a resize.
+  const selectedItems = items;
   const resultItems = items.filter((it) => it.status !== "pending");
   const doneCount = items.filter((it) => it.status === "done").length;
   const canResize =
@@ -331,7 +354,7 @@ export default function ImageResizerPage() {
               />
             </div>
 
-            {/* Selected files, awaiting resize */}
+            {/* Selected source files (persist across resizes) */}
             {selectedItems.length > 0 && (
               <div className="flex flex-col gap-2">
                 <p className="text-sm font-medium">
@@ -484,8 +507,9 @@ export default function ImageResizerPage() {
                       size="icon"
                       variant="ghost"
                       className="size-8 shrink-0"
-                      onClick={() => handleRemove(item.id)}
+                      onClick={() => handleClearResult(item.id)}
                       disabled={isResizing && item.status === "resizing"}
+                      aria-label={`Clear result for ${item.file.name}`}
                     >
                       <X className="size-4" />
                     </Button>
