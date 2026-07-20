@@ -1,4 +1,4 @@
-# Developer Tools
+# DevTools
 
 A collection of everyday web-developer utilities that run almost entirely in the
 **browser** — no backend, no account, nothing to deploy. The only server-side

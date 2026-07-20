@@ -40,7 +40,7 @@ export default function HomePage() {
               <Code2 className="size-6" />
             </div>
             <div className="flex flex-col gap-1">
-              <h1 className="text-2xl font-semibold">Developer Tools</h1>
+              <h1 className="text-2xl font-semibold">DevTools</h1>
               <p className="text-muted-foreground text-sm">
                 A collection of handy, client-side tools for everyday
                 development work.

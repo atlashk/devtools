@@ -171,7 +171,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Code2 className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium">Developer Tools</span>
+                  <span className="font-medium">DevTools</span>
                   <span className="">v1.0.0</span>
                 </div>
               </Link>
