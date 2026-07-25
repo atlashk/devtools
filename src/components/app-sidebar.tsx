@@ -46,9 +46,20 @@ const data = {
       ],
     },
     {
-      title: "String Counter",
-      url: "/string-counter",
-      items: [],
+      title: "String",
+      url: "/string",
+      items: [
+        {
+          title: "Case Converter",
+          url: "/string/case-converter",
+          isActive: false,
+        },
+        {
+          title: "String Counter",
+          url: "/string/counter",
+          isActive: false,
+        },
+      ],
     },
     {
       title: "Diff Checker",

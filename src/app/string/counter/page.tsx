@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import StringCounterPage from "@/features/string-counter-page";
+import StringCounterPage from "@/features/string/counter-page";
 
 export const metadata: Metadata = {
   title: "String Counter",
