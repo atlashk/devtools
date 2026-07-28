@@ -35,9 +35,17 @@ interface DiffViewerProps {
   label: string;
   originalText: string;
   modifiedText: string;
+  onOriginalChange: (value: string) => void;
+  onModifiedChange: (value: string) => void;
 }
 
-function DiffViewer({ label, originalText, modifiedText }: DiffViewerProps) {
+function DiffViewer({
+  label,
+  originalText,
+  modifiedText,
+  onOriginalChange,
+  onModifiedChange,
+}: DiffViewerProps) {
   const isIdentical = originalText === modifiedText;
 
   return (
@@ -53,8 +61,10 @@ function DiffViewer({ label, originalText, modifiedText }: DiffViewerProps) {
         <MonacoDiffEditor
           original={originalText}
           modified={modifiedText}
+          onOriginalChange={onOriginalChange}
+          onModifiedChange={onModifiedChange}
           height="600px"
-          readOnly={true}
+          readOnly={false}
           lang="plaintext"
           className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden"
         />
@@ -212,6 +222,8 @@ export default function DiffCheckerPage() {
                       label="Text Comparison"
                       originalText={text1}
                       modifiedText={text2}
+                      onOriginalChange={setText1}
+                      onModifiedChange={setText2}
                     />
                     <div className="mt-6">
                       <ActionButtons
