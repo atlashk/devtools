@@ -127,6 +127,17 @@ const data = {
       items: [],
     },
     {
+      title: "Markdown",
+      url: "/markdown",
+      items: [
+        {
+          title: "Viewer",
+          url: "/markdown/viewer",
+          isActive: false,
+        },
+      ],
+    },
+    {
       title: "WebP to PNG",
       url: "/webp-to-png",
       items: [],
