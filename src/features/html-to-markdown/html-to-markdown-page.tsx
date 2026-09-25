@@ -96,6 +96,7 @@ export default function HtmlToMarkdownPage() {
             />
             <MonacoEditor
               value={markdown}
+              onChange={setMarkdown}
               lang="markdown"
               readOnly
               showFormatButton={false}
