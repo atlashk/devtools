@@ -122,17 +122,17 @@ const data = {
       items: [],
     },
     {
-      title: "HTML to Markdown",
-      url: "/html-to-markdown",
-      items: [],
-    },
-    {
       title: "Markdown",
       url: "/markdown",
       items: [
         {
           title: "Viewer",
           url: "/markdown/viewer",
+          isActive: false,
+        },
+        {
+          title: "HTML to Markdown",
+          url: "/markdown/from-html",
           isActive: false,
         },
       ],

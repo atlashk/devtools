@@ -4,8 +4,10 @@ import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
+  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
+  BreadcrumbSeparator,
 } from "@/components/ui/shadcn/breadcrumb";
 import { Button } from "@/components/ui/shadcn/button";
 import { MonacoEditor } from "@/components/ui/monaco-editor/monaco-editor";
@@ -59,6 +61,10 @@ export default function HtmlToMarkdownPage() {
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
+                <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbLink href="#">Markdown</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
                   <BreadcrumbPage>HTML to Markdown</BreadcrumbPage>
                 </BreadcrumbItem>
@@ -96,6 +102,7 @@ export default function HtmlToMarkdownPage() {
             />
             <MonacoEditor
               value={markdown}
+              onChange={setMarkdown}
               lang="markdown"
               readOnly
               showFormatButton={false}
