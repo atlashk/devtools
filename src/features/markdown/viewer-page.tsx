@@ -4,8 +4,10 @@ import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
+  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
+  BreadcrumbSeparator,
 } from "@/components/ui/shadcn/breadcrumb";
 import { MonacoEditor } from "@/components/ui/monaco-editor/monaco-editor";
 import { Separator } from "@/components/ui/shadcn/separator";
@@ -54,8 +56,12 @@ export default function MarkdownViewerPage() {
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
+                <BreadcrumbItem className="hidden md:block">
+                  <BreadcrumbLink href="#">Markdown</BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
-                  <BreadcrumbPage>Markdown Viewer</BreadcrumbPage>
+                  <BreadcrumbPage>Viewer</BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
